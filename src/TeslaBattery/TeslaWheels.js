@@ -1,6 +1,8 @@
 import './TeslaWheels.scss'
 
-import {Component, h} from 'preact'
+import classNames from 'classnames'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
 
 const SIZES = [19, 21]
 
@@ -26,11 +28,10 @@ class TeslaWheels extends Component {
         {SIZES.map((size) =>
           <label
             key={size}
-            class={{
-              [`tesla-wheels__item tesla-wheels__item--${size}`]: true,
+            class={classNames(`tesla-wheels__item tesla-wheels__item--${size}`, {
               'tesla-wheels__item--active': value === size,
               'class.tesla-wheels__item--focused': focused === size,
-            }}>
+            })}>
             <input
               type="radio"
               name="wheelsize"

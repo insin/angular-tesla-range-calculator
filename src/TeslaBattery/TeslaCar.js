@@ -1,6 +1,7 @@
 import './TeslaCar.scss'
 
-import {Component, h} from 'preact'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
 
 class TeslaCar extends Component {
   render({wheelsize}) {

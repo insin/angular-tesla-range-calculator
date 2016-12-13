@@ -1,6 +1,7 @@
 import './TeslaStats.scss'
 
-import {Component, h} from 'preact'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
 
 class TeslaStats extends Component {
   render({stats}) {

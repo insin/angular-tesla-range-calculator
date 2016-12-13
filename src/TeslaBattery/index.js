@@ -1,6 +1,7 @@
 import './TeslaBattery.scss'
 
-import {Component, h} from 'preact'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
 
 import modelData from './modelData'
 import TeslaCar from './TeslaCar'
@@ -8,6 +9,13 @@ import TeslaStats from './TeslaStats'
 import TeslaCounter from './TeslaCounter'
 import TeslaClimate from './TeslaClimate'
 import TeslaWheels from './TeslaWheels'
+
+const INITIAL_CONFIG = {
+  speed: 55,
+  temperature: 20,
+  climate: true,
+  wheels: 19,
+}
 
 const RESULT_MODELS = ['60', '60D', '75', '75D', '90D', 'P100D']
 
@@ -23,18 +31,9 @@ function calculateStats(models, config) {
 }
 
 class TeslaBattery extends Component {
-  constructor() {
-    super()
-    let config = {
-      speed: 55,
-      temperature: 20,
-      climate: true,
-      wheels: 19,
-    }
-    this.state = {
-      config,
-      stats: calculateStats(RESULT_MODELS, config),
-    }
+  state = {
+    config: INITIAL_CONFIG,
+    stats: calculateStats(RESULT_MODELS, INITIAL_CONFIG),
   }
 
   componentWillMount() {

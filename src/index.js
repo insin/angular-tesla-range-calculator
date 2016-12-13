@@ -1,17 +1,11 @@
 import './styles.css'
 
-import {h, render} from 'preact'
+import Inferno from 'inferno'
 
-let root
-function init() {
-  let App = require('./App')
-  root = render(<App/>, document.querySelector('#app'), root)
-}
+import App from './App'
 
-init()
+Inferno.render(<App/>, document.querySelector('#app'))
 
 if (module.hot) {
-  module.hot.accept('./App', () => window.requestAnimationFrame(() => {
-    init()
-  }))
+  module.hot.accept()
 }

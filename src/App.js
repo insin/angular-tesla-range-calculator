@@ -1,6 +1,7 @@
 import './App.scss'
 
-import {Component, h} from 'preact'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
 
 import TeslaBattery from './TeslaBattery'
 

@@ -1,13 +1,9 @@
 import './TeslaCar.scss'
 
-import React, {PropTypes as t} from 'react'
+import {Component, h} from 'preact'
 
-let TeslaCar = React.createClass({
-  propTypes: {
-    wheelsize: t.number.isRequired,
-  },
-  render() {
-    let {wheelsize} = this.props
+class TeslaCar extends Component {
+  render({wheelsize}) {
     return <div class="tesla-car">
       <div class="tesla-car__wheels">
         <div class={`tesla-car__wheel tesla-car__wheel--front tesla-car__wheel--${wheelsize}`}></div>
@@ -15,6 +11,6 @@ let TeslaCar = React.createClass({
       </div>
     </div>
   }
-})
+}
 
 export default TeslaCar

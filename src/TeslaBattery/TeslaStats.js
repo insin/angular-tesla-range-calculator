@@ -1,13 +1,9 @@
 import './TeslaStats.scss'
 
-import React, {PropTypes as t} from 'react'
+import {Component, h} from 'preact'
 
-let TeslaStats = React.createClass({
-  propTypes: {
-    stats: t.array.isRequired
-  },
-  render() {
-    let {stats} = this.props
+class TeslaStats extends Component {
+  render({stats}) {
     return <div class="tesla-stats">
       <ul>
         {stats.map(stat =>
@@ -19,6 +15,6 @@ let TeslaStats = React.createClass({
       </ul>
     </div>
   }
-})
+}
 
 export default TeslaStats

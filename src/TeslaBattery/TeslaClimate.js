@@ -1,39 +1,30 @@
 import './TeslaClimate.scss'
 
-import classNames from 'classnames'
-import React, {PropTypes as t} from 'react'
+import {Component, h} from 'preact'
 
-let TeslaClimate = React.createClass({
-  propTypes: {
-    limit: t.bool.isRequired,
-    onChange: t.func.isRequired,
-    value: t.bool.isRequired,
-  },
-  getInitialState() {
-    return {
-      focused: false
-    }
-  },
+class TeslaClimate extends Component {
+  state = {
+    focused: false
+  }
 
-  onBlur() {
+  onBlur = () => {
     this.setState({focused: true})
-  },
-  onChange(e) {
+  }
+  onChange = (e) => {
     this.props.onChange(e.target.checked)
-  },
-  onFocus(e) {
+  }
+  onFocus = (e) => {
     this.setState({focused: false})
-  },
+  }
 
-  render() {
-    let {limit, value} = this.props
-    let {focused} = this.state
+  render({limit, value}, {focused}) {
     return <div class="tesla-climate">
-      <label class={classNames('tesla-climate__item', {
+      <label class={{
+        'tesla-climate__item': true,
         'tesla-heat': !limit,
         'tesla-climate__item--active': value,
         'tesla-climate__item--focused': focused === value,
-      })}>
+      }}>
         <p>{limit ? 'ac' : 'heat'} {value ? 'on' : 'off' }</p>
         <i class="tesla-climate__icon"></i>
         <input
@@ -47,6 +38,6 @@ let TeslaClimate = React.createClass({
       </label>
     </div>
   }
-})
+}
 
 export default TeslaClimate

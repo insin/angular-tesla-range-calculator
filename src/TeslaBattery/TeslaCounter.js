@@ -1,34 +1,23 @@
 import './TeslaCounter.scss'
 
-import React, {PropTypes as t} from 'react'
+import {Component, h} from 'preact'
 
-let TeslaCounter = React.createClass({
-  propTypes: {
-    min: t.number.isRequired,
-    max: t.number.isRequired,
-    onChange: t.func.isRequired,
-    step: t.number,
-    title: t.string.isRequired,
-    unit: t.string.isRequired,
-    value: t.number.isRequired,
-  },
-  getDefaultProps() {
-    return {
-      step: 1
-    }
-  },
+class TeslaCounter extends Component {
+  static defaultProps = {
+    step: 1
+  }
 
-  decrement() {
+  decrement = () => {
     if (this.props.value > this.props.min) {
       this.props.onChange(this.props.value - this.props.step)
     }
-  },
-  increment() {
+  }
+  increment = () => {
     if (this.props.value < this.props.max) {
       this.props.onChange(this.props.value + this.props.step)
     }
-  },
-  onKeyUp(e) {
+  }
+  onKeyUp = (e) => {
     let handlers = {
       ArrowUp: () => this.increment(),
       ArrowDown: () => this.decrement()
@@ -38,10 +27,9 @@ let TeslaCounter = React.createClass({
       e.preventDefault()
       e.stopPropagation()
     }
-  },
+  }
 
-  render() {
-    let {min, max, title, unit, value} = this.props
+  render({min, max, title, unit, value}) {
     return <div class="tesla-counter">
       <p class="tesla-counter__title">{title}</p>
       <div class="tesla-counter__container cf">
@@ -63,6 +51,6 @@ let TeslaCounter = React.createClass({
       </div>
     </div>
   }
-})
+}
 
 export default TeslaCounter

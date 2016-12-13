@@ -1,10 +1,10 @@
 import './App.scss'
 
-import React from 'react'
+import {Component, h} from 'preact'
 
 import TeslaBattery from './TeslaBattery'
 
-let App = React.createClass({
+class App extends Component {
   render() {
     return <div>
       <header class="header">
@@ -15,6 +15,6 @@ let App = React.createClass({
       </div>
     </div>
   }
-})
+}
 
 export default App

@@ -4,21 +4,18 @@
   "description": "Describe react-tesla-range-calculator here",
   "private": true,
   "scripts": {
-    "build": "nwb build-react-app",
+    "build": "nwb build-preact-app",
     "clean": "nwb clean-app",
     "lint": "eslint src",
-    "start": "nwb serve-react-app",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "start": "nwb serve-preact-app",
+    "test": "nwb test-preact",
+    "test:coverage": "nwb test-preact --coverage",
+    "test:watch": "nwb test-preact --server"
   },
   "dependencies": {
-    "classnames": "2.2.5",
-    "react": "15.4.1",
-    "react-dom": "15.4.1"
+    "preact": "7.1.0"
   },
   "devDependencies": {
-    "babel-plugin-react-html-attrs": "2.0.0",
     "eslint-config-jonnybuchanan": "4.8.0",
     "nwb": "0.13.6",
     "nwb-sass": "0.6.0"

@@ -1,44 +1,36 @@
 import './TeslaWheels.scss'
 
-import classNames from 'classnames'
-import React, {PropTypes as t} from 'react'
+import {Component, h} from 'preact'
 
 const SIZES = [19, 21]
 
-let TeslaWheels = React.createClass({
-  propTypes: {
-    onChange: t.func.isRequired,
-    value: t.number.isRequired,
-  },
-  getInitialState() {
-    return {
-      focused: ''
-    }
-  },
+class TeslaWheels extends Component {
+  state = {
+    focused: ''
+  }
 
-  onBlur() {
+  onBlur = (e) => {
     this.setState({focused: ''})
-  },
-  onChange(e) {
+  }
+  onChange = (e) => {
     this.props.onChange(Number(e.target.value))
-  },
-  onFocus(e) {
+  }
+  onFocus = (e) => {
     this.setState({focused: Number(e.target.value)})
-  },
+  }
 
-  render() {
-    let {value} = this.props
-    let {focused} = this.state
+  render({value}, {focused}) {
     return <div class="tesla-wheels">
       <p class="tesla-wheels__title">Wheels</p>
       <div class="tesla-wheels__container cf">
         {SIZES.map((size) =>
           <label
             key={size}
-            class={classNames(`tesla-wheels__item tesla-wheels__item--${size}`, {
+            class={{
+              [`tesla-wheels__item tesla-wheels__item--${size}`]: true,
               'tesla-wheels__item--active': value === size,
               'class.tesla-wheels__item--focused': focused === size,
-            })}>
+            }}>
             <input
               type="radio"
               name="wheelsize"
@@ -56,6 +48,6 @@ let TeslaWheels = React.createClass({
       </div>
     </div>
   }
-})
+}
 
 export default TeslaWheels

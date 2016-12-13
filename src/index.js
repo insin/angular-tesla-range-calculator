@@ -1,8 +1,17 @@
 import './styles.css'
 
-import React from 'react'
-import {render} from 'react-dom'
+import {h, render} from 'preact'
 
-import App from './App'
+let root
+function init() {
+  let App = require('./App')
+  root = render(<App/>, document.querySelector('#app'), root)
+}
 
-render(<App/>, document.querySelector('#app'))
+init()
+
+if (module.hot) {
+  module.hot.accept('./App', () => window.requestAnimationFrame(() => {
+    init()
+  }))
+}

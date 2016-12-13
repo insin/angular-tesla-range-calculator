@@ -1,6 +1,6 @@
 import './TeslaBattery.scss'
 
-import React from 'react'
+import {Component, h} from 'preact'
 
 import modelData from './modelData'
 import TeslaCar from './TeslaCar'
@@ -22,37 +22,37 @@ function calculateStats(models, config) {
   })
 }
 
-let TeslaBattery = React.createClass({
-  getInitialState() {
+class TeslaBattery extends Component {
+  constructor() {
+    super()
     let config = {
       speed: 55,
       temperature: 20,
       climate: true,
       wheels: 19,
     }
-    return {
+    this.state = {
       config,
       stats: calculateStats(RESULT_MODELS, config),
     }
-  },
+  }
 
   componentWillMount() {
     this._handlers = {}
-  },
+  }
 
   handleChange(name) {
     if (!this._handlers[name]) {
       this._handlers[name] = (value) => this.onChange(name, value)
     }
     return this._handlers[name]
-  },
+  }
   onChange(name, value) {
     let config = {...this.state.config, [name]: value}
     this.setState({config, stats: calculateStats(RESULT_MODELS, config)})
-  },
+  }
 
-  render() {
-    let {config, stats} = this.state
+  render({}, {config, stats}) {
     return <form class="tesla-battery">
       <h1>Range Per Charge</h1>
       <TeslaCar wheelsize={config.wheels}/>
@@ -102,6 +102,6 @@ let TeslaBattery = React.createClass({
       </div>
     </form>
   }
-})
+}
 
 export default TeslaBattery

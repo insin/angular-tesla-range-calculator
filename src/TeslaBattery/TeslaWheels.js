@@ -37,7 +37,7 @@ class TeslaWheels extends Component {
               name="wheelsize"
               value={size}
               onBlur={this.onBlur}
-              onChange={this.onChange}
+              onClick={this.onChange}
               onFocus={this.onFocus}
               checked={value === size}
             />

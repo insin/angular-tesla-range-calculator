@@ -4,7 +4,7 @@
   "description": "Describe react-tesla-range-calculator here",
   "private": true,
   "scripts": {
-    "build": "nwb build-inferno-app",
+    "build": "nwb build-inferno-app --no-vendor",
     "clean": "nwb clean-app",
     "lint": "eslint src",
     "start": "nwb serve-inferno-app",

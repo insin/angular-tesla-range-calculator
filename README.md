@@ -2,7 +2,7 @@
 
 An Inferno version of @toddmotto's [angular-tesla-range-calculator](https://github.com/toddmotto/angular-tesla-range-calculator) app.
 
-### [Live Version](https://inferno-tesla-range-calculator.surge.sh/) (JS: 14.23 KB gzipped)
+### [Live Version](https://inferno-tesla-range-calculator.surge.sh/) (JS: 14.71 KB gzipped)
 
 ### Features
 
